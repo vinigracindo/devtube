@@ -1,0 +1,20 @@
+{% extends 'base.html' %}
+
+{% block content %}
+  {% if form.errors %}
+    {% for error in form.non_field_errors %}
+      <div class="alert alert-danger" role="alert">
+      {{ error }}
+      </div>
+    {% endfor %}
+  {% endif %}
+  <form method="post">
+    {% csrf_token %}
+    <label for="inputUsername" class="sr-only">Usuário</label>
+    <input type="text" name="username" id="inputUsername" class="form-control" placeholder="Usuário" required autofocus>
+    <label for="inputPassword" class="sr-only">Senha</label>
+    <input type="password" name="password" id="inputPassword" class="form-control" placeholder="Senha" required>
+    <button class="btn btn-lg btn-primary btn-block" type="submit">Entrar</button>
+  </form>
+{% endblock content %}
+
