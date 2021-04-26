@@ -10,3 +10,13 @@ class Course(models.Model):
 
     def __str__(self):
         return self.name
+
+
+class Video(models.Model):
+    course = models.ForeignKey(Course, on_delete=models.CASCADE)
+    title = models.CharField(max_length=128)
+    content = models.FileField(upload_to='videos/')
+
+    def __str__(self):
+        return self.title
+    
