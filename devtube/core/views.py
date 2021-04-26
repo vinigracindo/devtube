@@ -1,3 +1,8 @@
 from django.shortcuts import render
 
-# Create your views here.
+from devtube.core.models import Course
+
+
+def index(request):
+    courses = Course.objects.all()
+    return render(request, 'core/index.html', {'courses': courses})
