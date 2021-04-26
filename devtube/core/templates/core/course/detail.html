@@ -1,1 +1,24 @@
-Olá mundo {{ course }}
+{% extends 'base.html' %}
+
+{% block title %}
+  Curso {{ course.name }}
+{% endblock title %}
+
+{% block title-description %}
+  {{ course.description }}
+{% endblock title-description %}
+
+{% block content %}
+<div class="row">
+    <div class="col-10">
+     <video class="col-10" src="/media/{{ video.content }}" controls>
+        Your browser does not support the video tag.
+     </video>
+    </div>
+    <div class="col-2">
+        {% for video in course.video_set.all %}
+            <a href="{{ course.get_absolute_url }}?video={{ video.pk }}">{{ video.title }}</a> <br>
+        {% endfor %}
+    </div>
+</div>
+{% endblock content %}
