@@ -1,5 +1,6 @@
 from django.db import models
 from django.conf import settings
+from django.urls import reverse
 
 
 class Course(models.Model):
@@ -10,6 +11,10 @@ class Course(models.Model):
 
     def __str__(self):
         return self.name
+
+    def get_absolute_url(self):
+        return reverse("core:course_detail", kwargs={"pk": self.pk})
+    
 
 
 class Video(models.Model):

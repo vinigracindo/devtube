@@ -26,3 +26,7 @@ class CourseModelTest(TestCase):
     def test_description_can_be_blank(self):
         field = Course._meta.get_field('description')
         self.assertTrue(field.blank)
+
+    def test_get_absolute_url(self):
+        from django.urls import reverse
+        self.assertEqual(self.course.get_absolute_url(), reverse('core:course_detail', args=[str(self.course.id)]))
