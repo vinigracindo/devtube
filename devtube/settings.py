@@ -25,7 +25,7 @@ SECRET_KEY = 'django-insecure-3@o7d7yw)=86e8qu*qamjt8)6u4klfs(+(8)q1l9@v148+m&z)
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS = []
+ALLOWED_HOSTS = ['*']
 
 
 # Application definition
@@ -80,9 +80,17 @@ WSGI_APPLICATION = 'devtube.wsgi.application'
 
 DATABASES = {
     'default': {
-        'ENGINE': 'django.db.backends.sqlite3',
-        'NAME': BASE_DIR / 'db.sqlite3',
+        'ENGINE': 'django.db.backends.mysql',
+        'NAME': 'devtube',
+        'USER': 'root',
+        'PASSWORD': 'root',
+        'HOST': 'devtube_mysql',
+        'PORT': '3306',
     }
+    #'default': {
+    #    'ENGINE': 'django.db.backends.sqlite3',
+    #    'NAME': 'db.sqlite3',
+    #}
 }
 
 
@@ -123,6 +131,7 @@ USE_TZ = True
 # https://docs.djangoproject.com/en/3.2/howto/static-files/
 
 STATIC_URL = '/static/'
+STATIC_ROOT = BASE_DIR / 'devtube/static'
 
 MEDIA_URL = '/media/'
 MEDIA_ROOT = BASE_DIR / 'devtube/media'
