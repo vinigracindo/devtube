@@ -1,3 +1,8 @@
+# Clone o repositório
+```bash
+git clone https://github.com/vinigracindo/devtube.git .
+```
+
 # Crie uma Network no Docker
 ```bash
 docker network create devtube
